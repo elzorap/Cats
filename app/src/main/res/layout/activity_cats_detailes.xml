@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <include
+            android:id="@+id/my_toolbar"
+            layout="@layout/toolbar" />
+
+        <ImageView
+            android:id="@+id/ivCat"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="@dimen/layout_margin"
+            android:contentDescription="@string/cat_picture"
+            android:scaleType="centerInside"
+            android:background="#D3D3D3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
+
+        <TextView
+            android:id="@+id/tvBreed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/breed_name"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/ivCat"
+            app:layout_constraintTop_toBottomOf="@+id/ivCat" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivCat"
+            android:layout_margin="@dimen/layout_margin"
+            android:text="@string/cat_name"
+            android:textSize="@dimen/text_size_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvBreed"
+            app:layout_constraintTop_toBottomOf="@+id/ivCat" />
+
+        <TextView
+            android:id="@+id/tvBreed_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/breed_description"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvBreed"
+            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/cat_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvBreed_description"
+            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+        <TextView
+            android:id="@+id/tvCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/country"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvBreed_description"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+        <TextView
+            android:id="@+id/tvCountryCode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/country_code"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvCountry"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+        <TextView
+            android:id="@+id/tvTemperament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/temperament"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvCountry"
+            app:layout_constraintTop_toBottomOf="@+id/tvCountryCode" />
+
+        <TextView
+            android:id="@+id/tvTemperamentDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/temperament_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvTemperament"
+            app:layout_constraintTop_toBottomOf="@+id/tvCountryCode" />
+
+        <TextView
+            android:id="@+id/tvWikipediaUrl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/wikipedia_url"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvTemperament"
+            app:layout_constraintTop_toBottomOf="@+id/tvTemperamentDescription" />
+
+        <TextView
+            android:id="@+id/tvWikipedia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/wikipedia_link"
+            android:autoLink="web"
+            android:textColorLink="@color/purple_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvWikipediaUrl"
+            app:layout_constraintTop_toBottomOf="@+id/tvTemperamentDescription" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Cats</string>
+    <string name="administrator_name">Administrator</string>
+    <string name="user_name">Username</string>
+    <string name="password_name">Password</string>
+    <string name="login">Login</string>
+    <string name="cat_image">Image</string>
+    <string name="cat_name">Name</string>
+    <string name="cat_description">Description</string>
+    <string name="cat_picture">Picture</string>
+    <string name="country_code">Country code</string>
+    <string name="temperament">Temperament:</string>
+    <string name="wikipedia_url">Wikipedia url:</string>
+    <string name="breed_name">Breed:</string>
+    <string name="breed_description">Breed description:</string>
+    <string name="country">Country:</string>
+    <string name="temperament_description">Temperament</string>
+    <string name="wikipedia_link">Wikipedia link</string>
+</resources>
