@@ -1,8 +1,6 @@
 package com.example.android.cats;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
