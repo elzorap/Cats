@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class CatsAdapter extends RecyclerView.Adapter<CatsAdapter.ItemViewHolder> {
@@ -33,11 +31,13 @@ public class CatsAdapter extends RecyclerView.Adapter<CatsAdapter.ItemViewHolder
         return this.listOfCats.size();
     }
 
-    public void onBindViewHolder(final ItemViewHolder holder, @SuppressLint("RecyclerView") final int position) {
+    public void onBindViewHolder(@NonNull final ItemViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         Cat cat = listOfCats.get(position);
-        Picasso.get().load(cat.getImage().getUrl()).into(holder.image);
-        holder.name.setText(cat.getName());
-        holder.description.setText(cat.getDescription());
+        if (cat != null && cat.getImage() != null) {
+            Picasso.get().load(cat.getImage().getUrl()).into(holder.image);
+            holder.name.setText(cat.getName());
+            holder.description.setText(cat.getDescription());
+        }
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(holder.itemView.getContext(), CatsDetailes.class);
