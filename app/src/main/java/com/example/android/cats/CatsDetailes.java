@@ -38,7 +38,7 @@ public class CatsDetailes extends AppCompatActivity {
         wikipedia_url = findViewById(R.id.tvWikipedia);
 
         Cat cat = (Cat) getIntent().getSerializableExtra("cat");
-        if (cat != null) {
+        if (cat != null && cat.getImage() != null) {
             Picasso.get().load(cat.getImage().getUrl()).into(image);
             description.setText(cat.getDescription());
             name.setText(cat.getName());
