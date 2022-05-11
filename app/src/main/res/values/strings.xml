@@ -16,4 +16,5 @@
     <string name="country">Country:</string>
     <string name="temperament_description">Temperament</string>
     <string name="wikipedia_link">Wikipedia link</string>
+    <string name="search_name">Search</string>
 </resources>
