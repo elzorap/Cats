@@ -75,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
 
-        Cat cat = (Cat) getIntent().getSerializableExtra("cat");
-
             searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
