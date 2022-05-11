@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,12 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class CatsAdapter extends RecyclerView.Adapter<CatsAdapter.ItemViewHolder> {
+public class CatsAdapter extends RecyclerView.Adapter<CatsAdapter.ItemViewHolder> implements Filterable {
     ArrayList<Cat> listOfCats;
+    ArrayList<Cat> listOfCatsFull;
 
     public CatsAdapter(ArrayList<Cat> listOfCats) {
         this.listOfCats = listOfCats;
+        listOfCatsFull = new ArrayList<>(listOfCats);
     }
 
     @NonNull
@@ -58,6 +63,41 @@ public class CatsAdapter extends RecyclerView.Adapter<CatsAdapter.ItemViewHolder
             description = view.findViewById(R.id.tvDescription);
         }
     }
-}
 
+    @Override
+    public Filter getFilter() {
+        return catsFilter;
+    }
+
+    private final Filter catsFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Cat> filteredList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(listOfCatsFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (Cat item : listOfCatsFull) {
+                    if (item.getCountry_code().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            listOfCats.clear();
+            listOfCats.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
+}
 
