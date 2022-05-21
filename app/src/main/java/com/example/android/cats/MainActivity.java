@@ -104,15 +104,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void filterList(String origin) {
-        ArrayList<Cat> filterListOfCats = new ArrayList<>();
+        ArrayList<Cat> filteredListOfCats = new ArrayList<>();
 
         for (Cat cat : listOfCats) {
             if (cat.getOrigin().toLowerCase().contains(origin)) {
-                filterListOfCats.add(cat);
+                filteredListOfCats.add(cat);
             }
         }
 
-        adapter = new CatsAdapter(filterListOfCats);
+        adapter = new CatsAdapter(filteredListOfCats);
         cats_recyclerview.setAdapter(adapter);
 
     }
