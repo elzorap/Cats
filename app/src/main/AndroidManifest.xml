@@ -15,11 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cats">
         <activity
-            android:name="com.example.android.cats.CatsDetailes"
-            android:hardwareAccelerated="true" />
-        <activity
             android:name=".LoginActivity"
-            android:noHistory="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +25,9 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:hardwareAccelerated="true" />
+        <activity
+            android:name="com.example.android.cats.CatsDetailes"
             android:hardwareAccelerated="true" />
 
     </application>

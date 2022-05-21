@@ -5,6 +5,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -25,11 +26,18 @@ public class CatsDetailes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cats_detailes);
 
-        toolbar = findViewById(R.id.my_toolbar);
+        setToolbar();
+        getCatDetailes();
+    }
+
+    private void setToolbar() {
+        toolbar = findViewById(R.id.myToolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Cat detailes");
+        getSupportActionBar().setTitle("Cat filter");
+    }
 
+    private void getCatDetailes() {
         image = findViewById(R.id.ivCat);
         name = findViewById(R.id.tvName);
         description = findViewById(R.id.tvDescription);
@@ -46,11 +54,10 @@ public class CatsDetailes extends AppCompatActivity {
             temperament.setText(cat.getTemperament());
             wikipedia_url.setText(cat.getWikipedia_url());
         }
-
     }
 
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() != 16908332) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() != android.R.id.home) {
             return super.onOptionsItemSelected(item);
         }
         finish();

@@ -3,10 +3,74 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/country_all"
+        android:title="@string/country_all" />
+    <item
+        android:id="@+id/country_australia"
+        android:title="@string/country_australia" />
+    <item
+        android:id="@+id/country_burma"
+        android:title="@string/country_burma" />
+    <item
+        android:id="@+id/country_canada"
+        android:title="@string/country_canada" />
+    <item
+        android:id="@+id/country_china"
+        android:title="@string/country_china" />
+    <item
+        android:id="@+id/country_cyprus"
+        android:title="@string/country_cyprus" />
+    <item
+        android:id="@+id/country_egypt"
+        android:title="@string/country_egypt" />
+    <item
+        android:id="@+id/country_france"
+        android:title="@string/country_france" />
+    <item
+        android:id="@+id/country_greece"
+        android:title="@string/country_greece" />
+    <item
+        android:id="@+id/country_isle_of_man"
+        android:title="@string/country_isle_of_man" />
+    <item
+        android:id="@+id/country_iran"
+        android:title="@string/country_iran" />
+    <item
+        android:id="@+id/country_japan"
+        android:title="@string/country_japan" />
+    <item
+        android:id="@+id/country_norway"
+        android:title="@string/country_norway" />
+    <item
+        android:id="@+id/country_russia"
+        android:title="@string/country_russia" />
+    <item
+        android:id="@+id/country_singapore"
+        android:title="@string/country_singapore" />
+    <item
+        android:id="@+id/country_somalia"
+        android:title="@string/country_somalia" />
+    <item
+        android:id="@+id/country_thailand"
+        android:title="@string/country_thailand" />
+    <item
+        android:id="@+id/country_turkey"
+        android:title="@string/country_turkey" />
+    <item
+        android:id="@+id/country_united_arab_emirates"
+        android:title="@string/country_united_arab_emirates" />
+    <item
+        android:id="@+id/country_united_states"
+        android:title="@string/country_united_states" />
+    <item
+        android:id="@+id/country_united_kingdom"
+        android:title="@string/country_united_kingdom" />
+    <item
         android:id="@+id/action_search"
         android:icon="@drawable/ic_search"
-        android:title="@string/password_name"
+        android:title="@string/search_name"
+        android:orderInCategory="100"
         app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="ifRoom|collapseActionView" />
+        app:showAsAction="ifRoom" />
 
 </menu>

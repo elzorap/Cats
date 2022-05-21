@@ -80,7 +80,7 @@ public class CatsAdapter extends RecyclerView.Adapter<CatsAdapter.ItemViewHolder
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
                 for (Cat item : listOfCatsFull) {
-                    if (item.getCountry_code().toLowerCase().contains(filterPattern)) {
+                    if (item.getOrigin().toLowerCase().contains(filterPattern)) {
                         filteredList.add(item);
                     }
                 }

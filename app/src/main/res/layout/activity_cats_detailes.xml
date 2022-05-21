@@ -11,7 +11,7 @@
         android:scrollbars="vertical">
 
         <include
-            android:id="@+id/my_toolbar"
+            android:id="@+id/myToolbar"
             layout="@layout/toolbar" />
 
         <ImageView
@@ -24,7 +24,7 @@
             android:background="#D3D3D3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
 
         <TextView
             android:id="@+id/tvBreed"
@@ -49,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/ivCat" />
 
         <TextView
-            android:id="@+id/tvBreed_description"
+            android:id="@+id/tvBreedDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -66,7 +66,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/cat_description"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvBreed_description"
+            app:layout_constraintStart_toEndOf="@+id/tvBreedDescription"
             app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
         <TextView
@@ -76,7 +76,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/country"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/tvBreed_description"
+            app:layout_constraintStart_toStartOf="@+id/tvBreedDescription"
             app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
         <TextView
