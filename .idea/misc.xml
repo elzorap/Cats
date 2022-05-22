@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Mihai/Desktop/AndroidStudioProjects/Cats/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1905" />
         <entry key="..\:/Users/Mihai/Desktop/AndroidStudioProjects/Cats/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1015" />
+        <entry key="..\:/Users/Mihai/Desktop/AndroidStudioProjects/Cats/app/src/main/res/drawable/ic_search.xml" value="0.1905" />
+        <entry key="..\:/Users/Mihai/Desktop/AndroidStudioProjects/Cats/app/src/main/res/drawable/ic_search_2.xml" value="0.1905" />
         <entry key="..\:/Users/Mihai/Desktop/AndroidStudioProjects/Cats/app/src/main/res/layout/activity_cats_detailes.xml" value="0.25" />
         <entry key="..\:/Users/Mihai/Desktop/AndroidStudioProjects/Cats/app/src/main/res/layout/activity_filter.xml" value="0.26009693053311794" />
         <entry key="..\:/Users/Mihai/Desktop/AndroidStudioProjects/Cats/app/src/main/res/layout/activity_login.xml" value="0.16304347826086957" />

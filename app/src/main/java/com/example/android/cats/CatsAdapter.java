@@ -77,10 +77,13 @@ public class CatsAdapter extends RecyclerView.Adapter<CatsAdapter.ItemViewHolder
             if (constraint == null || constraint.length() == 0) {
                 filteredList.addAll(listOfCatsFull);
             } else {
-                String filterPattern = constraint.toString().toLowerCase().trim();
+                String filterPattern = constraint.toString().trim();
 
                 for (Cat item : listOfCatsFull) {
-                    if (item.getOrigin().toLowerCase().contains(filterPattern)) {
+                    if (item.getName().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+
+                    } else if (item.getName().toUpperCase().contains(filterPattern)) {
                         filteredList.add(item);
                     }
                 }
