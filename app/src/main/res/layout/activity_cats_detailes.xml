@@ -11,7 +11,7 @@
         android:scrollbars="vertical">
 
         <include
-            android:id="@+id/my_toolbar"
+            android:id="@+id/myToolbar"
             layout="@layout/toolbar" />
 
         <ImageView
@@ -24,7 +24,7 @@
             android:background="#D3D3D3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
 
         <TextView
             android:id="@+id/tvBreed"
