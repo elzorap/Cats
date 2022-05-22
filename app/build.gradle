@@ -14,13 +14,14 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField 'String', 'API_BASE_URL', '"https://api.thecatapi.com/"'
     }
 
     buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -40,6 +41,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation 'com.google.android.libraries.maps:maps:3.1.0-beta'
     implementation 'org.jetbrains:annotations:15.0'
+    implementation 'androidx.mediarouter:mediarouter:1.3.0'
     testImplementation 'junit:junit:'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -49,4 +51,5 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:19.0.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
     implementation 'com.android.volley:volley:1.2.1'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
 }
