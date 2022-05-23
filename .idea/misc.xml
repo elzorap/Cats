@@ -23,6 +23,12 @@
         <entry key="..\:/Users/Mihai/Desktop/Cats/app/src/main/res/layout/activity_user.xml" value="0.17028985507246377" />
         <entry key="..\:/Users/Mihai/Desktop/Cats/app/src/main/res/layout/cats_row.xml" value="0.25" />
         <entry key="..\:/Users/Mihai/Desktop/Cats/app/src/main/res/layout/toolbar.xml" value="0.17028985507246377" />
+        <entry key="app/src/main/res/layout/activity_filter.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14175724637681159" />
+        <entry key="app/src/main/res/layout/cats_row.xml" value="0.14175724637681159" />
+        <entry key="app/src/main/res/layout/filter_row.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/toolbar.xml" value="0.14175724637681159" />
+        <entry key="app/src/main/res/menu/cat_menu.xml" value="0.19322916666666667" />
       </map>
     </option>
   </component>

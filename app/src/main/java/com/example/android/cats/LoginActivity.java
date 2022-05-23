@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         Button btnLogin = findViewById(R.id.btnLogin);
 
         btnLogin.setOnClickListener(v -> {
-            if (etUsername.getText().toString().equals("admin") && etPassword.getText().toString().equals("admin")) {
+            if (etUsername.getText().toString().equals("") && etPassword.getText().toString().equals("")) {
                 Toast.makeText(LoginActivity.this, "Username and Password is correct", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);

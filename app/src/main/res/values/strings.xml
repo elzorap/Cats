@@ -41,4 +41,5 @@
     <string name="country_united_arab_emirates">United Arab Emirates</string>
     <string name="country_united_states">United States</string>
     <string name="country_united_kingdom">United kingdom</string>
+    <string name="filter_button">FILTER</string>
 </resources>

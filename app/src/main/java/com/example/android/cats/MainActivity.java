@@ -1,26 +1,20 @@
 package com.example.android.cats;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.SearchView;
+import android.widget.Button;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -34,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     public RecyclerView cats_recyclerview;
     ArrayList<Cat> listOfCats;
     Toolbar toolbar;
+    Button btnFilter;
+    ArrayList<String> catCountryList = new ArrayList<>();
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
         setToolbar();
         setRecyclerView();
         getCatsResponse();
+        setUpViews();
+
     }
+
 
     private void setToolbar() {
         toolbar = findViewById(R.id.myToolbar);
@@ -63,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 listOfCats = new ArrayList<>(response.body());
                 adapter = new CatsAdapter(listOfCats);
                 cats_recyclerview.setAdapter(adapter);
+                catCountryList = getCatCountries(listOfCats);
                 findViewById(R.id.progressBar).setVisibility(View.GONE);
                 Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_LONG).show();
             }
@@ -77,37 +77,45 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.cat_menu, menu);
-
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-
-        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
-                return false;
-            }
+    private void setUpViews() {
+        btnFilter = findViewById(R.id.btnFilter);
+        btnFilter.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, FilterActivity.class);
+            intent.putStringArrayListExtra(Constants.ORIGIN_KEY, catCountryList);
+            startActivityForResult(intent, 1000);
         });
-
-        return true;
     }
+
+    private ArrayList<String> getCatCountries(ArrayList<Cat> list) {
+        HashSet<String> countryList = new HashSet<>();
+
+        for (Cat cat : list) {
+            countryList.add(cat.getOrigin());
+        }
+
+        return new ArrayList<>(countryList);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        String filter = data.getStringExtra(Constants.FILTER_KEY);
+        if (filter.equalsIgnoreCase("")){
+            adapter = new CatsAdapter(listOfCats);
+            cats_recyclerview.setAdapter(adapter);
+        } else {
+            filterList(filter);
+        }
+
+    }
+
 
     private void filterList(String origin) {
         ArrayList<Cat> filteredListOfCats = new ArrayList<>();
 
         for (Cat cat : listOfCats) {
-            if (cat.getOrigin().toLowerCase().contains(origin)) {
+            if (cat.getOrigin().equalsIgnoreCase(origin)) {
                 filteredListOfCats.add(cat);
             }
         }
@@ -116,97 +124,5 @@ public class MainActivity extends AppCompatActivity {
         cats_recyclerview.setAdapter(adapter);
 
     }
-
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.country_all) {
-            adapter = new CatsAdapter(listOfCats);
-            cats_recyclerview.setAdapter(adapter);
-            return true;
-        }
-        if (id == R.id.country_australia) {
-            filterList("australia");
-            return true;
-        }
-        if (id == R.id.country_burma) {
-            filterList("burma");
-            return true;
-        }
-        if (id == R.id.country_canada) {
-            filterList("canada");
-            return true;
-        }
-        if (id == R.id.country_china) {
-            filterList("china");
-            return true;
-        }
-        if (id == R.id.country_cyprus) {
-            filterList("cyprus");
-            return true;
-        }
-        if (id == R.id.country_egypt) {
-            filterList("egypt");
-            return true;
-        }
-        if (id == R.id.country_france) {
-            filterList("france");
-            return true;
-        }
-        if (id == R.id.country_greece) {
-            filterList("greece");
-            return true;
-        }
-        if (id == R.id.country_isle_of_man) {
-            filterList("isle of man");
-            return true;
-        }
-        if (id == R.id.country_iran) {
-            filterList("iran (persia)");
-            return true;
-        }
-        if (id == R.id.country_japan) {
-            filterList("japan");
-            return true;
-        }
-        if (id == R.id.country_norway) {
-            filterList("norway");
-            return true;
-        }
-        if (id == R.id.country_russia) {
-            filterList("russia");
-            return true;
-        }
-        if (id == R.id.country_singapore) {
-            filterList("singapore");
-            return true;
-        }
-        if (id == R.id.country_somalia) {
-            filterList("somalia");
-            return true;
-        }
-        if (id == R.id.country_thailand) {
-            filterList("thailand");
-            return true;
-        }
-        if (id == R.id.country_turkey) {
-            filterList("turkey");
-            return true;
-        }
-        if (id == R.id.country_united_arab_emirates) {
-            filterList("united arab emirates");
-            return true;
-        }
-        if (id == R.id.country_united_states) {
-            filterList("united states");
-            return true;
-        }
-        if (id == R.id.country_united_kingdom) {
-            filterList("united kingdom");
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
 }
 
