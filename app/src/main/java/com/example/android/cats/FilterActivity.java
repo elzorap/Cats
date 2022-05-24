@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 public class FilterActivity extends AppCompatActivity {
 
@@ -38,12 +37,8 @@ public class FilterActivity extends AppCompatActivity {
         catCountryList = new ArrayList<>();
         catCountryList = getIntent().getStringArrayListExtra("origin");
 
-        Collections.sort(catCountryList, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.compareToIgnoreCase(o2);
-            }
-        });
+        Collections.sort(catCountryList, String::compareToIgnoreCase);
+
         adapter = new FilterAdapter(this, catCountryList);
         filter_recyclerview.setAdapter(adapter);
 
