@@ -44,8 +44,10 @@ public class FilterActivity extends AppCompatActivity {
     private void clearFilter() {
         btnClear = findViewById(R.id.btnClear);
         btnClear.setOnClickListener(v->{
-            Intent intent = new Intent(FilterActivity.this, MainActivity.class);
-            startActivity(intent);
+            Intent intent = new Intent();
+            intent.putExtra(Constants.FILTER_KEY, "");
+            setResult(1000, intent);
+            finish();
         });
 
         Toast.makeText(this, catCountryList.size() + "", Toast.LENGTH_LONG).show();
